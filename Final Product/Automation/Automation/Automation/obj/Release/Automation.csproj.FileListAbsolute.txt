@@ -1,0 +1,9 @@
+D:\Automation\Automation\Automation\bin\Automation.dll
+D:\Automation\Automation\Automation\bin\Automation.pdb
+D:\Automation\Automation\Automation\bin\itextsharp.dll
+D:\Automation\Automation\Automation\bin\itextsharp.pdfa.dll
+D:\Automation\Automation\Automation\bin\itextsharp.xtra.dll
+D:\Automation\Automation\Automation\bin\itextsharp.xml
+D:\Automation\Automation\Automation\obj\Release\Automation.dll
+D:\Automation\Automation\Automation\obj\Release\Automation.pdb
+D:\Automation\Automation\Automation\obj\Release\Automation.csprojResolveAssemblyReference.cache
