@@ -1,11 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Manage_RFP_Answer.aspx.cs" Inherits="Automation.User.Manage_RFP_Answer" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Proposal_2.aspx.cs" Inherits="Automation.Agency.Proposal__2_" %>
+
+<%@ Register src="notiProposalAccepted.ascx" tagname="notiProposalAccepted" tagprefix="uc1" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
-    <title></title>
-</head>
 <head>
 		<meta charset="utf-8">
 		<title>Automation</title>
@@ -106,6 +105,9 @@
                         <ul> 
                             <asp:HyperLink ID="AgencyInfo" runat="server" ForeColor="Red" 
                                 NavigateUrl="~/User/User_Detail.aspx">Information</asp:HyperLink></ul>
+                        <ul>
+                            <uc1:notiProposalAccepted ID="notiProposalAccepted1" runat="server" />
+                        </ul>
                         </div>
                     </div>
 					<!-- ENDS search -->
@@ -127,7 +129,7 @@
 						<!-- Navigation -->
 						<ul id="nav" class="sf-menu">
 							<li class="current-menu-item"><a href="../default.aspx">Home</a></li>
-							<li><a href="Upload an RFP.aspx">Upload an RFP</a>
+							<li><a href="../User/Upload an RFP.aspx">Upload an RFP</a>
 							</li>
 							<li><a href="../List of RFPs.aspx">List of RFPs</a></li>
 							<li><a href="../Contact.aspx">Contact</a></li>
@@ -141,82 +143,77 @@
 			<!-- ENDS Menu -->
 			
 			
-			
-
 			<!-- Slider -->
 			
 			<!-- ENDS Slider -->
+
+			
 			
 			<!-- MAIN -->
-            
-                <div id="main">
-				<!-- wrapper-main -->
-				<div class="wrapper">
-					
-					
-					<!-- content -->
-					<div id="content">
-						
-					<!-- title -->
-					<div id="page-title">
-						<span class="title">Manage RFP Answer</span>
-						<span class="subtitle">Manage RFP</span>
-					</div>
-					<!-- ENDS title -->
-
-					<!-- page-content -->
-					<div id="page-content">						
-						<div class="wrapper">
-                        <h6 class="line-divider">Manage RFP Answer</h6>
-                    <asp:GridView ID="gvRFPAnswer" runat="server" AutoGenerateColumns="False" 
-                                CellPadding="4" DataKeyNames="ID_RFP,ID_Proposal" DataSourceID="SqlDataSource1" 
-                                ForeColor="#333333" GridLines="None" Width="904px">
-                        <AlternatingRowStyle BackColor="White" />
-                        <Columns>
-                            <asp:BoundField DataField="Company_Name" HeaderText="Company_Name" 
-                                SortExpression="Company_Name" />
-                            <asp:BoundField DataField="Context" HeaderText="Context" 
-                                SortExpression="Context" />
-                            <asp:HyperLinkField DataNavigateUrlFields="Context" 
-                                DataNavigateUrlFormatString="~/PDF_Proposal/{0}" Text="Download" />
-                            <asp:HyperLinkField DataNavigateUrlFields="ID_Proposal,ID_RFP" 
-                                DataNavigateUrlFormatString="~/User/Accept.aspx?idPro={0}&amp;idRFP={1}" 
-                                Text="Accept" />
-                            <asp:HyperLinkField Text="Display" DataNavigateUrlFields="ID_PROPOSAL" 
-                                DataNavigateUrlFormatString="~/User/Display.aspx?id={0}" />
-                        </Columns>
-                        <EditRowStyle BackColor="#2461BF" />
-                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#EFF3FB" />
-                        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                        <SortedAscendingCellStyle BackColor="#F5F7FB" />
-                        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-                        <SortedDescendingCellStyle BackColor="#E9EBEF" />
-                        <SortedDescendingHeaderStyle BackColor="#4870BE" />
-                    </asp:GridView>
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-                                ConnectionString="<%$ ConnectionStrings:ApplicationServices %>" 
-                                SelectCommand="SELECT Proposal.Company_Name, RFP.ID_RFP, Proposal.ID_Proposal, Proposal.Context FROM RFP INNER JOIN Proposal ON RFP.ID_RFP = Proposal.ID_RFP WHERE (RFP.ID_RFP = @id)">
-                                <SelectParameters>
-                                    <asp:QueryStringParameter Name="id" QueryStringField="id" />
-                                </SelectParameters>
-                            </asp:SqlDataSource>
-                            <asp:Label ID="MessageError" runat="server" Text="Message Error" Height="200px"></asp:Label>
-                            <br />
-                            
-                        </div>
-						
-            </div>
-        </div>
-        </div>
-        </div>   
-    
-
-
-    
            
+             <!-- 2/3 cols -->
+             <div id="main">
+             <div class="wrapper">
+             <div id="content">
+             <div id="page-title">
+						<span class="title">Proposal Form</span>
+						<span class="subtitle">Create Your Proposal</span>
+					</div>
+			<div class="one-third">
+			<h6 class="line-divider">APPROACH TO THE PROJECT</h6><br />
+			<h6 class="line-divider">WORK PLAN
+            <img src="../img/mono-icons/notepencil32.png" title="arrowright32.png"/></h6><br />
+            <h6 class="line-divider">STAFFING STRUCTURE</h6><br />
+            <h6 class="line-divider">BUDGETING</h6>
+					</div>
+						<div class="two-third last">
+						<asp:Label ID="Label9" runat="server" Text="How much time do you provide warranty for this project?"></asp:Label>
+                        <br />
+                        <asp:TextBox ID="Warranty" runat="server" Width="210px" Height="50px" 
+                                TextMode="MultiLine" Text='<%# Eval("myField", "{0:#,##0.00}") %>'></asp:TextBox>
+                                <br />
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+                                ControlToValidate="Warranty" ErrorMessage="Please, just enter the number" 
+                                ForeColor="Red" ValidationExpression="(\d*)"></asp:RegularExpressionValidator>
+                        <br /><br />
+                        <asp:Label ID="Label10" runat="server" Text="Estimated time to complete the project? (By hours)"></asp:Label>
+                        <br />
+                        <asp:TextBox ID="Time" runat="server" Width="210px" Height="50px" 
+                                TextMode="MultiLine"></asp:TextBox>
+                                <br />
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
+                                ErrorMessage="Please, just enter the number" ForeColor="Red" 
+                                ControlToValidate="Time" ValidationExpression="(\d*)"></asp:RegularExpressionValidator>
+                        <br /><br />
+                        <asp:Label ID="Label11" runat="server" Text="What is the estimated duration of the project?"></asp:Label>
+                        <br />
+                        <asp:TextBox ID="Duration" runat="server" Width="210px" Height="50px" 
+                                TextMode="MultiLine"></asp:TextBox>
+                                <br />
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" 
+                                ErrorMessage="Please, just enter the number" ForeColor="Red" 
+                                ControlToValidate="Duration" ValidationExpression="(\d*)"></asp:RegularExpressionValidator>
+                        <br /><br />
+                        <asp:Label ID="Label12" runat="server" Text="What is the estimated cost for the project?"></asp:Label>
+                        <br />
+                        <asp:TextBox ID="Cost" runat="server" Width="210px" Height="50px" 
+                                TextMode="MultiLine"></asp:TextBox>
+                                <br />
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" 
+                                ErrorMessage="Please, just enter the number" ForeColor="Red" 
+                                ControlToValidate="Cost" ValidationExpression="(\d*)"></asp:RegularExpressionValidator>
+                        <br /><br />
+                            <asp:Button ID="Button2" runat="server" Text="Back" onclick="Button2_Click" />
+                            &nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Next" />
+                       
+                        </div>
+						<div class="clear "></div>
+                        </div>
+                        </div>
+                        </div>
+                        
+            
 
 			<!-- ENDS MAIN -->
 
@@ -230,12 +227,12 @@
 						<li class="col">
 							<h6>Pages</h6>
 							<ul>
-								<li class="page_item"><a href="">Home</a></li>
-								<li class="page_item"><a href="">Features</a></li>
-								<li class="page_item"><a href="">Blog</a></li>
-								<li class="page_item"><a href="">Portfolio</a></li>
-								<li class="page_item"><a href="">Gallery</a></li>
-								<li class="page_item"><a href="">Contact</a></li>
+								<li class="page_item"><a href="index.html">Home</a></li>
+								<li class="page_item"><a href="features.html">Features</a></li>
+								<li class="page_item"><a href="blog.html">Blog</a></li>
+								<li class="page_item"><a href="portfolio.html">Portfolio</a></li>
+								<li class="page_item"><a href="gallery.html">Gallery</a></li>
+								<li class="page_item"><a href="contact.html">Contact</a></li>
 							</ul>
 						</li>
 						
@@ -287,4 +284,5 @@
 			</div>
 			<!-- ENDS Bottom -->
 	</form>
+    </body>
 </html>

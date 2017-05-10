@@ -84,9 +84,11 @@
                                     SortExpression="RFP_Title" />
                                 <asp:BoundField DataField="Deadline" HeaderText="Deadline" 
                                     SortExpression="Deadline" />
+                                <asp:BoundField DataField="Description" HeaderText="Option" SortExpression="Description" />
                                 <asp:BoundField DataField="Budget" HeaderText="Budget" 
                                     SortExpression="Budget" />
-                                <asp:BoundField DataField="Description" HeaderText="Option" SortExpression="Description" />
+                                <asp:BoundField DataField="Currency" HeaderText="Currency" 
+                                    SortExpression="Currency" />
                                 <asp:HyperLinkField DataNavigateUrlFields="ID_RFP_Question" 
                                     DataNavigateUrlFormatString="Detail_RFPs.aspx?id={0}" Text="RFP Detail" />
                             </Columns>
@@ -108,7 +110,8 @@
                             
                             
                                 
-                                SelectCommand="SELECT RFP_Question.Name_Of_Customer, RFP_Question.Name_Of_Company, RFP_Question.RFP_Title, RFP_Question.Deadline, RFP_Question.Budget, RFP_Question.Options, RFP_Question.ID_RFP_Question, RFP_Options.Description FROM RFP_Question INNER JOIN RFP ON RFP_Question.ID_RFP = RFP.ID_RFP INNER JOIN RFP_Options ON RFP.ID_Options = RFP_Options.ID_Options">
+                                
+                                SelectCommand="SELECT RFP_Question.Name_Of_Customer, RFP_Question.Name_Of_Company, RFP_Question.RFP_Title, RFP_Question.Deadline, RFP_Question.Budget, RFP_Question.Options, RFP_Question.ID_RFP_Question, RFP_Options.Description, RFP_Question.Currency FROM RFP_Question INNER JOIN RFP ON RFP_Question.ID_RFP = RFP.ID_RFP INNER JOIN RFP_Options ON RFP.ID_Options = RFP_Options.ID_Options">
                         </asp:SqlDataSource>
                     </div>
                     </div>                

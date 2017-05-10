@@ -38,6 +38,17 @@ namespace Automation.User
                 MessageError.Visible = false;
         }
 
+        //Code de xu ly cho van de hien PopUp confirm
+        //protected void gvRFPAnswer_RowCommand(object sender, GridViewCommandEventArgs e)
+        //{
+        //    int rowSelectedID = Convert.ToInt32(e.CommandArgument);
+        //    String strID_RFP = gvRFPAnswer.DataKeys[rowSelectedID].Values["ID_RFP"].ToString();
+        //    String strID_Proposal = gvRFPAnswer.DataKeys[rowSelectedID].Values["ID_Proposal"].ToString();
+
+        //    this.Page.ClientScript.RegisterStartupScript(this.GetType(), "confirm", "confirm('Do you want to accept this proposal!')", true);
+
+        //}
+
 
         
     }

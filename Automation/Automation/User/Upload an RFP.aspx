@@ -196,12 +196,14 @@
             </asp:RequiredFieldValidator>
     <br />
     <br />
+            <asp:RadioButton GroupName="Currency" ID="rbVND" runat="server" Text="VND" Checked="True" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:RadioButton GroupName="Currency" ID="rbUSD" runat="server" Text="USD" />
+            <br /><br />
     <fieldset style="width:350px">
         <legend>
             <b><asp:Label ID="Label7" runat="server" BorderColor="Black" Text="What is your options?"></asp:Label></b><br />
         </legend>
-        <asp:RadioButton GroupName="Options" ID="rbWebsite" runat="server" 
-            Text="Website" Checked="True" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:RadioButton GroupName="Options" ID="rbWebsite" runat="server" Text="Website" Checked="True" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:RadioButton GroupName="Options" ID="rbMobile" runat="server" Text="Mobile Application" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:RadioButton GroupName="Options" ID="rbSoftware" runat="server" Text="Software" />
     </fieldset>

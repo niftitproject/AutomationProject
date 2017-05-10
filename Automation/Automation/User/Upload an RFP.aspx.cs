@@ -92,6 +92,7 @@ namespace Automation.User
                     cmd.Parameters.Add("@Marketing", System.Data.SqlDbType.VarChar).Value = TextBox11.Text;
                     cmd.Parameters.Add("@ID_RFP", System.Data.SqlDbType.Int).Value = idRFP;
                     cmd.Parameters.Add("@Upload_File", System.Data.SqlDbType.VarChar).Value = fileName;
+                    cmd.Parameters.Add("@Currency", System.Data.SqlDbType.VarChar, 50).Value = (rbVND.Checked == true) ? "VND" : "USD";
                     conn.Open();
                     cmd.ExecuteNonQuery();
 
@@ -162,6 +163,7 @@ namespace Automation.User
             else
                 return 3;
         }
+
 
 
         protected void Button1_Click(object sender, EventArgs e)
